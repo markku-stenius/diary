@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Diary</string>
+    <string name="app_add">Add new entry</string>
+    <string name="action_delete">Delete</string>
+    <string name="form_title">Title</string>
+    <string name="form_content">My dear diary</string>
+    <string name="form_send">Add new entry</string>
+    <string name="title_activity_diary_add">Add new entry</string>
+    <string name="success_deleted">Entry deleted!</string>
+    <string name="success_added">Entry added!</string>
+    <string name="success_edited">Entry updated!</string>
+    <string name="failed_delete">Delete failed!</string>
+    <string name="failed_content">Please fill the content field</string>
+    <string name="failed_title">Please fill the title field</string>
+    <string name="failed_general">Unable to process the request. Please try again.</string>
+    <string name="title_activity_diary_view">DiaryView</string>
+</resources>
