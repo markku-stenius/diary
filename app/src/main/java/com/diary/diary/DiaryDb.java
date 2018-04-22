@@ -39,10 +39,10 @@ public class DiaryDb {
         }
     }
 
-    public List<Entry> selectAll() {
+    public List<Entry> selectAll(String orderColumn, String orderDir) {
         List<Entry> data = new ArrayList<>();
         Cursor cursor = db.query(ENTRY,null,null,
-                null, null,null,null);
+                null, null,null,orderColumn + " " + orderDir);
         if(cursor != null) {
             if(cursor.moveToFirst()) {
                 do {

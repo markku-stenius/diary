@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.diary.diary.DiaryActivity">
+    <item
+        android:id="@+id/action_order_flip"
+        android:icon="@android:drawable/ic_menu_sort_by_size"
+        android:title="@string/action_order_flip"
+        app:showAsAction="ifRoom"
+
+        />
+    <item
+        android:id="@+id/action_order_date"
+        android:orderInCategory="100"
+        android:title="@string/action_order_date"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_order_title"
+        android:orderInCategory="101"
+        android:title="@string/action_order_title"
+        app:showAsAction="never" />
+</menu>

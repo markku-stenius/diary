@@ -2,6 +2,9 @@
     <string name="app_name">Diary</string>
     <string name="app_add">Add new entry</string>
     <string name="action_delete">Delete</string>
+    <string name="action_order_date">Order by date</string>
+    <string name="action_order_title">Order by title</string>
+    <string name="action_order_flip">Reverse order</string>
     <string name="form_title">Title</string>
     <string name="form_content">My dear diary</string>
     <string name="form_send">Add new entry</string>

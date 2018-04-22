@@ -25,6 +25,8 @@ public class DiaryActivity extends SuperActivity {
     private RecyclerView mRecyclerView;
     private EntryAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    private String orderColumn = "date";
+    private String orderDir = "desc";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +34,7 @@ public class DiaryActivity extends SuperActivity {
         setContentView(R.layout.activity_diary);
 
         // open database connection
-        entryList = db.selectAll();
+        entryList = db.selectAll(orderColumn, orderDir);
 
         // set up view
         mRecyclerView = findViewById(R.id.entryList);
@@ -76,10 +78,13 @@ public class DiaryActivity extends SuperActivity {
     protected void onResume() {
         super.onResume();
         // refresh the data
-        mAdapter.updateList(db.selectAll());
-        mAdapter.notifyDataSetChanged();
+        refreshData();
     }
 
+    private void refreshData() {
+        mAdapter.updateList(db.selectAll(orderColumn, orderDir));
+        mAdapter.notifyDataSetChanged();
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -101,5 +106,35 @@ public class DiaryActivity extends SuperActivity {
                         .show();
             }
         }
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_order_date:
+                this.orderColumn = "date";
+                this.refreshData();
+                return true;
+            case R.id.action_order_title:
+                this.orderColumn ="title";
+                this.refreshData();
+                return true;
+            case R.id.action_order_flip:
+                if(this.orderDir.equals("asc")) {
+                    this.orderDir = "desc";
+                } else {
+                    this.orderDir = "asc";
+                }
+                this.refreshData();
+                return true;
+        }
+
+        //noinspection SimplifiableIfStatement
+        return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
     }
 }
